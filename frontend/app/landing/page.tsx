@@ -358,7 +358,7 @@ export default function LandingPage() {
               <span className="text-xl font-bold">ByteCart+</span>
             </div>
             <div className="text-gray-400">
-              © 2024 ByteCart+. All rights reserved.
+              © 2025 ByteCart+. All rights reserved.
             </div>
           </div>
         </div>

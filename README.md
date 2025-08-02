@@ -177,6 +177,17 @@ ByteCart+ solves this problem by providing a simple, intuitive way to track expi
 3. Start the development server: `npm run dev`
 4. Open your browser to `http://localhost:3000`
 
+
+#Preview of the App Interface 
+
+
+
+![screenshots](/frontend/public/screenshots/screencapture-byte-cart-three-vercel-app-landing-2025-08-02-22_18_44.png)
+
+![screenshots](/frontend/public/screenshots/screencapture-byte-cart-three-vercel-app-login-2025-08-02-22_18_34.png)
+
+![screenshots](/frontend/public/screenshots/screencapture-byte-cart-three-vercel-app-dashboard-2025-08-02-22_18_19.png)
+
 ## Contributing
 
 We welcome contributions to ByteCart+! Please feel free to submit issues, feature requests, or pull requests.
