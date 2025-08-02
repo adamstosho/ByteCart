@@ -38,7 +38,6 @@ const itemSchema = new mongoose.Schema({
   timestamps: true
 });
 
-// Index for faster queries
 itemSchema.index({ userId: 1, expiryDate: 1 });
 
 module.exports = mongoose.model('Item', itemSchema); 

@@ -1,8 +1,5 @@
 const Item = require('../models/Item');
 
-// @desc    Add new item
-// @route   POST /api/items
-// @access  Private
 const addItem = async (req, res) => {
   try {
     const { name, type, quantity, expiryDate, notes, imageUrl } = req.body;
@@ -23,9 +20,6 @@ const addItem = async (req, res) => {
   }
 };
 
-// @desc    Get all user items
-// @route   GET /api/items
-// @access  Private
 const getItems = async (req, res) => {
   try {
     const items = await Item.find({ userId: req.user._id }).sort({ expiryDate: 1 });
@@ -35,9 +29,6 @@ const getItems = async (req, res) => {
   }
 };
 
-// @desc    Get expiring items (3-7 days)
-// @route   GET /api/items/expiring
-// @access  Private
 const getExpiringItems = async (req, res) => {
   try {
     const today = new Date();
@@ -58,9 +49,6 @@ const getExpiringItems = async (req, res) => {
   }
 };
 
-// @desc    Update item
-// @route   PUT /api/items/:id
-// @access  Private
 const updateItem = async (req, res) => {
   try {
     const { name, type, quantity, expiryDate, notes, imageUrl } = req.body;
@@ -71,7 +59,6 @@ const updateItem = async (req, res) => {
       return res.status(404).json({ message: 'Item not found' });
     }
 
-    // Check if item belongs to user
     if (item.userId.toString() !== req.user._id.toString()) {
       return res.status(401).json({ message: 'Not authorized' });
     }
@@ -95,9 +82,6 @@ const updateItem = async (req, res) => {
   }
 };
 
-// @desc    Delete item
-// @route   DELETE /api/items/:id
-// @access  Private
 const deleteItem = async (req, res) => {
   try {
     const item = await Item.findById(req.params.id);
@@ -106,7 +90,6 @@ const deleteItem = async (req, res) => {
       return res.status(404).json({ message: 'Item not found' });
     }
 
-    // Check if item belongs to user
     if (item.userId.toString() !== req.user._id.toString()) {
       return res.status(401).json({ message: 'Not authorized' });
     }

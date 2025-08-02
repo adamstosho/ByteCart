@@ -63,17 +63,14 @@ export function formatExpiryDate(expiryDate: string): string {
 
 export function filterItems(items: Item[], filters: { search: string; type: string; status: string }): Item[] {
   return items.filter((item) => {
-    // Search filter
     if (filters.search && !item.name.toLowerCase().includes(filters.search.toLowerCase())) {
       return false
     }
 
-    // Type filter
     if (filters.type !== "all" && item.type !== filters.type) {
       return false
     }
 
-    // Status filter
     if (filters.status !== "all") {
       const itemStatus = getItemStatus(item.expiryDate)
       if (itemStatus !== filters.status) {

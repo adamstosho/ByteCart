@@ -86,7 +86,6 @@ export function useItems() {
     fetchItems()
   }, [fetchItems])
 
-  // Filter and sort items
   const filteredItems = filterItems(items, filters)
   const sortedItems = sortItems(filteredItems, sortBy)
 

@@ -70,13 +70,11 @@ export function AddItemDialog({ open, onOpenChange, onSuccess }: AddItemDialogPr
   const handleImageSelect = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0]
     if (file) {
-      // Validate file type
       if (!file.type.startsWith('image/')) {
         alert('Please select a valid image file')
         return
       }
       
-      // Validate file size (max 5MB)
       if (file.size > 5 * 1024 * 1024) {
         alert('Image size must be less than 5MB')
         return
@@ -84,7 +82,6 @@ export function AddItemDialog({ open, onOpenChange, onSuccess }: AddItemDialogPr
 
       setSelectedImage(file)
       
-      // Create preview
       const reader = new FileReader()
       reader.onload = (e) => {
         setImagePreview(e.target?.result as string)
@@ -247,7 +244,6 @@ export function AddItemDialog({ open, onOpenChange, onSuccess }: AddItemDialogPr
           <div className="space-y-2">
             <Label className="text-sm font-medium text-gray-700">Item Image (Optional)</Label>
             
-            {/* Hidden file input */}
             <input
               ref={fileInputRef}
               type="file"
@@ -256,7 +252,6 @@ export function AddItemDialog({ open, onOpenChange, onSuccess }: AddItemDialogPr
               className="hidden"
             />
 
-            {/* Image preview */}
             {imagePreview && (
               <div className="relative inline-block">
                 <img
@@ -276,7 +271,6 @@ export function AddItemDialog({ open, onOpenChange, onSuccess }: AddItemDialogPr
               </div>
             )}
 
-            {/* Upload controls */}
             <div className="flex space-x-2">
               <Button
                 type="button"
@@ -311,7 +305,6 @@ export function AddItemDialog({ open, onOpenChange, onSuccess }: AddItemDialogPr
               )}
             </div>
 
-            {/* Current image URL (if uploaded) */}
             {watch("imageUrl") && !selectedImage && (
               <div className="mt-2 p-2 bg-gray-50 rounded-lg">
                 <p className="text-sm text-gray-600">Image uploaded successfully</p>

@@ -7,7 +7,6 @@ const checkExpiringItems = async () => {
     const today = new Date();
     const twoDaysFromNow = new Date(today.getTime() + (2 * 24 * 60 * 60 * 1000));
 
-    // Find all items expiring in 1-2 days
     const expiringItems = await Item.find({
       expiryDate: {
         $gte: today,
@@ -15,7 +14,6 @@ const checkExpiringItems = async () => {
       }
     }).populate('userId', 'name email');
 
-    // Group items by user
     const itemsByUser = {};
     expiringItems.forEach(item => {
       const userId = item.userId._id.toString();
@@ -28,7 +26,6 @@ const checkExpiringItems = async () => {
       itemsByUser[userId].items.push(item);
     });
 
-    // Send emails to each user
     for (const userId in itemsByUser) {
       const { user, items } = itemsByUser[userId];
       await sendReminderEmail(user.email, user.name, items);

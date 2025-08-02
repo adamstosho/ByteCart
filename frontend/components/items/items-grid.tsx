@@ -106,7 +106,6 @@ export function ItemsGrid({ items, onItemUpdate }: ItemsGridProps) {
         })}
       </div>
 
-      {/* Edit Item Dialog */}
       {editItem && (
         <EditItemDialog
           item={editItem}

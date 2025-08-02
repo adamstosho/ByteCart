@@ -6,14 +6,12 @@ import { ShoppingCart, Clock, Bell, CheckCircle } from "lucide-react"
 export function HeroIllustration() {
   return (
     <div className="relative w-full max-w-2xl mx-auto">
-      {/* Main App Mockup */}
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1, delay: 0.5 }}
         className="relative bg-white rounded-2xl shadow-2xl p-6 border border-gray-200"
       >
-        {/* Header */}
         <div className="flex items-center justify-between mb-6">
           <div className="flex items-center space-x-2">
             <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
@@ -28,9 +26,7 @@ export function HeroIllustration() {
           </div>
         </div>
 
-        {/* Content */}
         <div className="space-y-4">
-          {/* Item 1 */}
           <motion.div
             initial={{ x: -50, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
@@ -49,7 +45,6 @@ export function HeroIllustration() {
             <CheckCircle className="w-5 h-5 text-green-500" />
           </motion.div>
 
-          {/* Item 2 */}
           <motion.div
             initial={{ x: -50, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
@@ -68,7 +63,6 @@ export function HeroIllustration() {
             <Bell className="w-5 h-5 text-yellow-500" />
           </motion.div>
 
-          {/* Item 3 */}
           <motion.div
             initial={{ x: -50, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
@@ -88,7 +82,6 @@ export function HeroIllustration() {
           </motion.div>
         </div>
 
-        {/* Stats Bar */}
         <motion.div
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -102,7 +95,6 @@ export function HeroIllustration() {
         </motion.div>
       </motion.div>
 
-      {/* Floating Elements */}
       <motion.div
         animate={{
           y: [0, -10, 0],

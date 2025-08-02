@@ -57,7 +57,6 @@ class ApiService {
     return response.json()
   }
 
-  // Auth endpoints
   async register(data: { name: string; email: string; password: string }): Promise<AuthResponse> {
     return this.request<AuthResponse>("/api/auth/register", {
       method: "POST",
@@ -72,7 +71,6 @@ class ApiService {
     })
   }
 
-  // Profile endpoints
   async getProfile(): Promise<User> {
     return this.request<User>("/api/auth/profile")
   }
@@ -91,7 +89,6 @@ class ApiService {
     })
   }
 
-  // Items endpoints
   async getItems(): Promise<Item[]> {
     return this.request<Item[]>("/api/items")
   }
@@ -120,7 +117,6 @@ class ApiService {
     return this.request<Item[]>("/api/items/expiring")
   }
 
-  // Image upload
   async uploadImage(file: File): Promise<{ success: boolean; imageUrl: string; message: string }> {
     const formData = new FormData()
     formData.append('image', file)
@@ -143,7 +139,6 @@ class ApiService {
     return response.json()
   }
 
-  // Health check
   async healthCheck(): Promise<{ message: string; timestamp: string; environment: string }> {
     return this.request<{ message: string; timestamp: string; environment: string }>("/health")
   }
